@@ -355,6 +355,20 @@
                     }
                 });
             });
+
+            const allVideos = document.querySelectorAll('video');
+
+              // 2. Loop through each video and listen for the 'play' event
+            allVideos.forEach(video => {
+            video.addEventListener('play', function() {
+                // 3. When this video plays, pause all other videos
+                allVideos.forEach(otherVideo => {
+                    if (otherVideo !== video) {
+                        otherVideo.pause();
+                    }
+                });
+            });
+        });
         </script>
     </body>
 </html>
