@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>functional english</title>
+    </head>
+    <body>
+        <div>
+            <h1>Functional English</h1>
+            <p>This is the content for the Functional English section.</p>
+        </div>
+
+        <div>
+            <input type="search" placeholder="Search..." id="search">
+            <label for="search">Search</label>
+        </div>
+
+        <div class="card">
+            <h2>At a Hotel</h2>
+            <video controls controlslist="nodownload" disablepictureinpicture>
+                <source src="waldenAECSPART1/Funtional_English/AtAHotel.mp4" type="video/mp4">
+                your browser does not support the video tag.
+            </video>
+        </div>
+
+        <div class="card">
+            <h2>At a Restaurant</h2>
+            <video controls controlslist="nodownload" disablepictureinpicture>
+                <source src="waldenAECSPART1/Funtional_English/AtARestaurant.mp4" type="video/mp4">
+                your browser does not support the video tag.
+            </video>
+        </div>
+
+        <div class="card">
+            <h2>Body Language 1</h2>
+            <video controls controlslist="nodownload" disablepictureinpicture>
+                <source src="waldenAECSPART1/Funtional_English/BodyLanguage1.mp4" type="video/mp4">
+                your browser does not support the video tag.
+            </video>
+        </div>  
+
+        <div class="card">
+            <h2>Body Language 2</h2>
+            <video controls controlslist="nodownload" disablepictureinpicture>
+                <source src="waldenAECSPART1/Funtional_English/BodyLanguage2.mp4" type="video/mp4">
+                your browser does not support the video tag.
+            </video>
+        </div>
+
+        <div class="card">
+            <h2>Colloquial Or Formal </h2>
+            <video controls controlslist="nodownload" disablepictureinpicture>
+                <source src="waldenAECSPART1/Funtional_English/ColloquialOrFormal.mp4" type="video/mp4">
+                your browser does not support the video tag.
+            </video>
+        </div>
+        
+        <script>
+            let searchInput = document.getElementById('search');
+            let videocard = document.querySelectorAll('.card');
+
+            searchInput.addEventListener('input', function() {
+                let searchTerm = searchInput.value.toLowerCase();
+                videocard.forEach(function(card) {
+                    let cardTitle = card.querySelector('h2').textContent.toLowerCase();
+                    if (cardTitle.includes(searchTerm)) {
+                        card.style.display = 'block';
+                    } else {
+                        card.style.display = 'none';
+                    }
+                });
+            });
+        </script>
+    </body>
+</html>
