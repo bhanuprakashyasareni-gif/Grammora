@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Reading Comprehension</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <style>
+            img {
+                max-width: 100%;
+                height: auto;
+            }
+            video {
+                max-width: 100%;
+                height: auto;
+            }
+        </style>
+
+    </head>
+    <body>
+        <div>
+            <h1>Reading Comprehension</h1>
+            <p>This is the content for the Reading Comprehension section.</p>
+        </div>
+
+        <div>
+            <input type="search" placeholder="Search..." id="search">
+            <label for="search">Search</label>
+        </div>
+
+        <div class="card">
+            <h2>Reading Comprehension 1</h2>
+            <video controls controlslist="nodownload" disablepictureinpicture>
+                <source src="waldenAECSPART1/Reading_comprehension/ReadingComprehension1.mp4" type="video/mp4">
+                your browser does not support the video tag.
+            </video>
+        </div>
+
+        <div class="card">
+            <h2>Reading Comprehension 2</h2>
+            <video controls controlslist="nodownload" disablepictureinpicture>
+                <source src="waldenAECSPART1/Reading_comprehension/ReadingComprehension2.mp4" type="video/mp4">
+                your browser does not support the video tag.
+            </video>
+        </div>
+
+        <div class="card">
+            <h2>Reading Comprehension 3</h2>
+            <video controls controlslist="nodownload" disablepictureinpicture>
+                <source src="waldenAECSPART1/Reading_comprehension/ReadingComprehension3.mp4" type="video/mp4">
+                your browser does not support the video tag.
+            </video>
+        </div>  
+
+        <div class="card">
+            <h2>Reading Comprehension 4</h2>
+            <video controls controlslist="nodownload" disablepictureinpicture>
+                <source src="waldenAECSPART1/Reading_comprehension/ReadingComprehension4.mp4" type="video/mp4">
+                your browser does not support the video tag.
+            </video>
+        </div>
+
+        <div class="card">
+            <h2>Reading Comprehension 5</h2>
+            <video controls controlslist="nodownload" disablepictureinpicture>
+                <source src="waldenAECSPART1/Reading_comprehension/ReadingComprehension5.mp4" type="video/mp4">
+                your browser does not support the video tag.
+            </video>
+        </div>
+
+        <div class="card">
+            <h2>Reading Comprehension Task 1</h2>
+            <video controls controlslist="nodownload" disablepictureinpicture>
+                <source src="waldenAECSPART1/Reading_comprehension/ReadingComprehensionTask1.mp4" type="video/mp4">
+                your browser does not support the video tag.
+            </video>
+        </div>
+
+        <div class="card">
+            <h2>Reading Comprehension Task 2</h2>
+            <video controls controlslist="nodownload" disablepictureinpicture>
+                <source src="waldenAECSPART1/Reading_comprehension/ReadingComprehensionTask2.mp4" type="video/mp4">
+                your browser does not support the video tag.
+            </video>
+        </div>
+        
+        <div class="card">
+            <h2>Reading Comprehension Task 3</h2>
+            <video controls controlslist="nodownload" disablepictureinpicture>
+                <source src="waldenAECSPART1/Reading_comprehension/ReadingComprehensionTask3.mp4" type="video/mp4">
+                your browser does not support the video tag.
+            </video>
+        </div>
+
+        <div class="card">
+            <h2>Reading Comprehension Task 4</h2>
+            <video controls controlslist="nodownload" disablepictureinpicture>
+                <source src="waldenAECSPART1/Reading_comprehension/ReadingComprehensionTask4.mp4" type="video/mp4">
+                your browser does not support the video tag.
+            </video>
+
+        </div>
+
+        <div class="card">
+            <h2>Reading Comprehension Task 5</h2>
+            <video controls controlslist="nodownload" disablepictureinpicture>
+                <source src="waldenAECSPART1/Reading_comprehension/ReadingComprehensionTask5.mp4" type="video/mp4">
+                your browser does not support the video tag.
+            </video>
+        </div>
+
+        <div class="card">
+            <h2>Reading Comprehension Task 6</h2>
+            <video controls controlslist="nodownload" disablepictureinpicture>
+                <source src="waldenAECSPART1/Reading_comprehension/ReadingComprehensionTask6.mp4" type="video/mp4">
+                your browser does not support the video tag.
+            </video>
+        </div>
+
+       
+        <div class="card">
+            <h2>z Notes 1</h2>
+            <img src="waldenAECSPART1/Reading_comprehension/zreading1.png">
+        </div>
+
+        <div class="card">
+            <h2>z Notes 2</h2>
+            <img src="waldenAECSPART1/Reading_comprehension/zreading2.png">
+        </div>
+
+        <div class="card">
+            <h2>z Notes 3</h2>
+            <img src="waldenAECSPART1/Reading_comprehension/zreading3.png">
+        </div>
+        
+        <script>
+            let searchInput = document.getElementById('search');
+            let videocard = document.querySelectorAll('.card');
+
+            searchInput.addEventListener('input', function() {
+                let searchTerm = searchInput.value.toLowerCase();
+                videocard.forEach(function(card) {
+                    let cardTitle = card.querySelector('h2').textContent.toLowerCase();
+                    if (cardTitle.includes(searchTerm)) {
+                        card.style.display = 'block';
+                    } else {
+                        card.style.display = 'none';
+                    }
+                });
+            });
+
+            const allVideos = document.querySelectorAll('video');
+
+              // 2. Loop through each video and listen for the 'play' event
+            allVideos.forEach(video => {
+            video.addEventListener('play', function() {
+                // 3. When this video plays, pause all other videos
+                allVideos.forEach(otherVideo => {
+                    if (otherVideo !== video) {
+                        otherVideo.pause();
+                    }
+                });
+            });
+        });
+        </script>
+    </body>
+</html>
