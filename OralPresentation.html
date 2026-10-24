@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Oral Presentation</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <style>
+            img {
+                max-width: 100%;
+                height: auto;
+            }
+            video {
+                max-width: 100%;
+                height: auto;
+            }
+        </style>
+
+    </head>
+    <body>
+        <div>
+            <h1>Oral Presentation</h1>
+            <p>This is the content for the Oral Presentation section.</p>
+        </div>
+
+        <div>
+            <input type="search" placeholder="Search..." id="search">
+            <label for="search">Search</label>
+        </div>
+
+        <div class="card">
+            <h2>Greate Opening and Closing</h2>
+            <video controls controlslist="nodownload" disablepictureinpicture>
+                <source src="WaldenAECSPart2/OralPresentation/GreateOpenigAndClosing.mp4" type="video/mp4">
+                your browser does not support the video tag.
+            </video>
+        </div>
+
+        <div class="card">
+            <h2>Impartance of body language</h2>
+            <a href="https://youtu.be/3xCo2wrBRtg" target="_blank">Watch Video</a>
+        </div>
+
+        <div class="card">
+            <h2>Importance Of Vocal Variety</h2>
+            <a href="https://youtu.be/McnZdvtAdHI" target="_blank">Watch Video</a>
+        </div>
+
+
+        <div class="card">
+            <h2>Oral Presentation Strategies</h2>
+            <video controls controlslist="nodownload" disablepictureinpicture>
+                <source src="WaldenAECSPart2/OralPresentation/OralPresentationStrategies.mp4" type="video/mp4">
+                your browser does not support the video tag.
+            </video>
+        </div>  
+
+
+
+        <div class="card">
+            <h2>Speech Of Abraham Lincon</h2>
+            <video controls controlslist="nodownload" disablepictureinpicture>
+                <source src="WaldenAECSPart2/OralPresentation/SpeechOfAbrahamLincon.mp4" type="video/mp4">
+                your browser does not support the video tag.
+            </video>
+        </div>
+
+        <div class="card">
+            <h2>Speech Of Adolf Hitler</h2>
+            <a href="https://youtu.be/ZsDyHop__s0" target="_blank">Watch Video</a>
+        </div>
+
+         <div class="card">
+            <h2>Speech Of Martin Luther king</h2>
+            <a href="https://youtu.be/fRpq8cEjbRM" target="_blank">Watch Video</a>
+        </div>
+
+        <div class="card">
+            <h2>Speech Of Steve Jobs</h2>
+            <a href="https://youtu.be/g0p8mUuhBi0" target="_blank">Watch Video</a>
+        </div>
+
+        <div class="card">
+            <h2>Speech Of Vivekananda</h2>
+            <a href="https://youtu.be/7KtoLS9FR0o" target="_blank">Watch Video</a>
+        </div>
+
+        <div class="card">
+            <h2>Working With Audience</h2>
+            <a href="https://youtu.be/q5hKKR7k4cQ" target="_blank">Watch Video</a>
+        </div>
+
+
+        <div class="card">
+            <h2>z Notes 1</h2>
+            <img src="WaldenAECSPart2/OralPresentation/zoral1.png">
+        </div>
+
+        <div class="card">
+            <h2>z Notes 2</h2>
+            <img src="WaldenAECSPart2/OralPresentation/zoral2.png">
+        </div>
+
+        <div class="card">
+            <h2>z Notes 3</h2>
+            <img src="WaldenAECSPart2/OralPresentation/zoral3.png">
+        </div>
+        
+        <div class="card">
+            <h2>z Notes 4</h2>
+            <img src="WaldenAECSPart2/OralPresentation/zoral4.png">
+        </div>
+
+        <div class="card">
+            <h2>z Notes 5</h2>
+            <img src="WaldenAECSPart2/OralPresentation/zoral5.png">
+        </div>
+
+        <div class="card">
+            <h2>z Notes 6</h2>
+            <img src="WaldenAECSPart2/OralPresentation/zoral6.png">
+        </div>
+
+        <div class="card">
+            <h2>z Notes 7</h2>
+            <img src="WaldenAECSPart2/OralPresentation/zoral7.png">
+        </div>
+
+        <div class="card">
+            <h2>z Notes 8</h2>
+            <img src="WaldenAECSPart2/OralPresentation/zoral8.png">
+        </div>
+
+        <script>
+            let searchInput = document.getElementById('search');
+            let videocard = document.querySelectorAll('.card');
+
+            searchInput.addEventListener('input', function() {
+                let searchTerm = searchInput.value.toLowerCase();
+                videocard.forEach(function(card) {
+                    let cardTitle = card.querySelector('h2').textContent.toLowerCase();
+                    if (cardTitle.includes(searchTerm)) {
+                        card.style.display = 'block';
+                    } else {
+                        card.style.display = 'none';
+                    }
+                });
+            });
+
+            const allVideos = document.querySelectorAll('video');
+
+              // 2. Loop through each video and listen for the 'play' event
+            allVideos.forEach(video => {
+            video.addEventListener('play', function() {
+                // 3. When this video plays, pause all other videos
+                allVideos.forEach(otherVideo => {
+                    if (otherVideo !== video) {
+                        otherVideo.pause();
+                    }
+                });
+            });
+        });
+        </script>
+    </body>
+</html>
