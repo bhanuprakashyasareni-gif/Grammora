@@ -3,16 +3,672 @@
     <head>
         <title>Group Discussion</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <style>
-            img {
-                max-width: 100%;
-                height: auto;
-            }
-            video {
-                max-width: 100%;
-                height: auto;
-            }
-        </style>
+
+<style>
+/* =========================================
+   FUNCTIONAL ENGLISH — PREMIUM UI
+   Responsive | Animated | 3D | Glassmorphism
+   ========================================= */
+
+/* ---------- 1. DESIGN SYSTEM ---------- */
+
+:root {
+    --bg: #080d1b;
+    --bg-light: #101a30;
+    --card: rgba(20, 31, 54, 0.76);
+    --card-border: rgba(255, 255, 255, 0.10);
+    --text: #f4f7ff;
+    --muted: #a3b0ca;
+    --primary: #8b7cff;
+    --secondary: #32d9f6;
+    --pink: #fa79d9;
+    --radius: 22px;
+    --shadow: 0 18px 55px rgba(0, 0, 0, 0.26);
+    --transition: 0.35s cubic-bezier(.2, .8, .2, 1);
+}
+
+/* ---------- 2. RESET ---------- */
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 25px;
+}
+
+body {
+    min-height: 100vh;
+    padding: 36px clamp(14px, 4vw, 64px) 60px;
+    color: var(--text);
+    font-family: Inter, "Segoe UI", Roboto, Arial, sans-serif;
+    line-height: 1.6;
+    background:
+        radial-gradient(ellipse at 10% 10%, rgba(104, 76, 255, 0.17), transparent 40%),
+        radial-gradient(ellipse at 90% 35%, rgba(0, 203, 232, 0.11), transparent 36%),
+        radial-gradient(ellipse at 50% 100%, rgba(166, 77, 255, 0.12), transparent 45%),
+        var(--bg);
+    background-attachment: fixed;
+    overflow-x: hidden;
+    position: relative;
+}
+
+/* Animated atmospheric background */
+
+body::before,
+body::after {
+    content: "";
+    position: fixed;
+    width: 380px;
+    height: 380px;
+    border-radius: 50%;
+    filter: blur(100px);
+    opacity: 0.16;
+    pointer-events: none;
+    z-index: -1;
+    will-change: transform;
+}
+
+body::before {
+    background: #754cff;
+    top: -160px;
+    left: -130px;
+    animation: ambientFloat 15s ease-in-out infinite alternate;
+}
+
+body::after {
+    background: #00c8ef;
+    right: -170px;
+    bottom: -160px;
+    animation: ambientFloat 18s ease-in-out infinite alternate-reverse;
+}
+
+@keyframes ambientFloat {
+    from {
+        transform: translate3d(0, 0, 0) scale(1);
+    }
+    to {
+        transform: translate3d(65px, 80px, 0) scale(1.2);
+    }
+}
+
+/* ---------- 3. MAIN HERO SECTION ---------- */
+
+body > div:first-child {
+    position: relative;
+    isolation: isolate;
+    overflow: hidden;
+    width: 100%;
+    max-width: 1500px;
+    margin: 0 auto 32px;
+    padding: clamp(35px, 6vw, 76px) 24px;
+    text-align: center;
+    border: 1px solid rgba(255, 255, 255, 0.13);
+    border-radius: 30px;
+    background:
+        linear-gradient(
+            135deg,
+            rgba(103, 79, 255, 0.20),
+            rgba(30, 49, 82, 0.66) 50%,
+            rgba(0, 191, 220, 0.12)
+        );
+    box-shadow: var(--shadow);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    animation: heroAppear 0.9s ease both;
+}
+
+body > div:first-child::before {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    width: 260px;
+    height: 260px;
+    top: -150px;
+    right: -80px;
+    border: 1px solid rgba(255, 255, 255, 0.14);
+    border-radius: 50%;
+    box-shadow:
+        0 0 0 35px rgba(255, 255, 255, 0.025),
+        0 0 0 70px rgba(255, 255, 255, 0.018);
+    animation: orbitGlow 12s linear infinite;
+}
+
+body > div:first-child::after {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    width: 180px;
+    height: 180px;
+    left: -90px;
+    bottom: -120px;
+    border-radius: 50%;
+    background: var(--secondary);
+    opacity: 0.13;
+    filter: blur(55px);
+}
+
+@keyframes orbitGlow {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes heroAppear {
+    from {
+        opacity: 0;
+        transform: translateY(22px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+body > div:first-child h1 {
+    display: inline-block;
+    max-width: 100%;
+    margin-bottom: 15px;
+    font-size: clamp(2.2rem, 6vw, 4.7rem);
+    font-weight: 850;
+    line-height: 1.13;
+    letter-spacing: -2px;
+    color: transparent;
+    background: linear-gradient(
+        100deg,
+        #ffffff 5%,
+        #bdb4ff 40%,
+        #5deaff 75%,
+        #ffffff
+    );
+    background-size: 220% auto;
+    background-clip: text;
+    -webkit-background-clip: text;
+    animation: titleShine 7s linear infinite;
+}
+
+@keyframes titleShine {
+    to {
+        background-position: 220% center;
+    }
+}
+
+body > div:first-child p {
+    max-width: 650px;
+    margin: 0 auto;
+    color: #c0cce2;
+    font-size: clamp(0.95rem, 2vw, 1.15rem);
+    letter-spacing: 0.2px;
+}
+
+/* ---------- 4. SEARCH BAR ---------- */
+
+body > div:nth-child(2) {
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    width: min(100%, 740px);
+    margin: 0 auto 40px;
+    padding: 8px;
+    border: 1px solid rgba(255, 255, 255, 0.13);
+    border-radius: 18px;
+    background: rgba(20, 30, 52, 0.80);
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.17);
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
+    transition: border-color var(--transition), box-shadow var(--transition);
+}
+
+body > div:nth-child(2):focus-within {
+    border-color: rgba(139, 124, 255, 0.85);
+    box-shadow:
+        0 0 0 4px rgba(139, 124, 255, 0.10),
+        0 15px 45px rgba(80, 69, 210, 0.16);
+}
+
+#search {
+    width: 100%;
+    min-width: 0;
+    height: 48px;
+    padding: 0 17px;
+    border: none;
+    outline: none;
+    color: white;
+    background: transparent;
+    font: inherit;
+    font-size: 1rem;
+}
+
+#search::placeholder {
+    color: #8998b5;
+    transition: opacity 0.2s;
+}
+
+#search:focus::placeholder {
+    opacity: 0.55;
+}
+
+body > div:nth-child(2) label {
+    flex-shrink: 0;
+    padding: 11px 23px;
+    border-radius: 12px;
+    color: #fff;
+    background: linear-gradient(135deg, #7865ff, #5b8cff);
+    font-size: 0.91rem;
+    font-weight: 700;
+    cursor: text;
+    user-select: none;
+    box-shadow: 0 5px 18px rgba(110, 92, 255, 0.23);
+    transition: transform var(--transition), filter var(--transition);
+}
+
+body > div:nth-child(2) label:hover {
+    filter: brightness(1.15);
+    transform: translateY(-2px);
+}
+
+/* ---------- 5. RESPONSIVE CARD GRID ---------- */
+
+body {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    align-content: start;
+    align-items: stretch;
+    gap: 24px;
+}
+
+/* Hero and search occupy the complete row */
+
+body > div:first-child,
+body > div:nth-child(2) {
+    grid-column: 1 / -1;
+}
+
+/* ---------- 6. VIDEO AND NOTES CARDS ---------- */
+
+.card {
+    position: relative;
+    isolation: isolate;
+    display: flex;
+    flex-direction: column;
+    align-self: stretch;
+    min-width: 0;
+    padding: 15px;
+    overflow: hidden;
+    border: 1px solid var(--card-border);
+    border-radius: var(--radius);
+    background:
+        linear-gradient(
+            145deg,
+            rgba(255, 255, 255, 0.055),
+            transparent 55%
+        ),
+        var(--card);
+    box-shadow: 0 10px 32px rgba(0, 0, 0, 0.16);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    transform: translateZ(0);
+    animation: cardEnter 0.7s ease both;
+    transition:
+        transform var(--transition),
+        border-color var(--transition),
+        box-shadow var(--transition),
+        background var(--transition);
+}
+
+@keyframes cardEnter {
+    from {
+        opacity: 0;
+        transform: translateY(18px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Subtle animated top border */
+
+.card::before {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(
+        90deg,
+        transparent,
+        var(--primary),
+        var(--secondary),
+        transparent
+    );
+    transition: left 0.65s ease;
+}
+
+.card:hover::before {
+    left: 100%;
+}
+
+/* Decorative ambient glow */
+
+.card::after {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    right: -75px;
+    bottom: -95px;
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    background: var(--primary);
+    opacity: 0;
+    filter: blur(65px);
+    pointer-events: none;
+    transition: opacity var(--transition);
+}
+
+.card:hover {
+    transform: translateY(-7px) perspective(1000px) rotateX(1deg);
+    border-color: rgba(139, 124, 255, 0.48);
+    background-color: rgba(27, 39, 68, 0.94);
+    box-shadow:
+        0 25px 60px rgba(0, 0, 0, 0.30),
+        0 0 28px rgba(117, 93, 255, 0.09);
+}
+
+.card:hover::after {
+    opacity: 0.15;
+}
+
+/* Card headings */
+
+.card h2 {
+    position: relative;
+    margin: 2px 0 14px;
+    padding: 4px 0 11px;
+    color: #f1f3ff;
+    font-size: clamp(1rem, 1.4vw, 1.19rem);
+    font-weight: 750;
+    line-height: 1.45;
+    letter-spacing: 0.1px;
+    overflow-wrap: anywhere;
+}
+
+.card h2::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 37px;
+    height: 3px;
+    border-radius: 10px;
+    background: linear-gradient(90deg, var(--primary), var(--secondary));
+    transition: width var(--transition);
+}
+
+.card:hover h2::after {
+    width: 76px;
+}
+
+/* ---------- 7. VIDEO PLAYER ---------- */
+
+.card video {
+    display: block;
+    width: 100%;
+    max-width: 100%;
+    aspect-ratio: 16 / 9;
+    height: auto;
+    min-height: 0;
+    margin-top: auto;
+    border: 1px solid rgba(255, 255, 255, 0.09);
+    border-radius: 14px;
+    background: #030711;
+    object-fit: contain;
+    outline: none;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.22);
+    transition:
+        border-color var(--transition),
+        box-shadow var(--transition);
+}
+
+.card:hover video {
+    border-color: rgba(100, 221, 255, 0.25);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.30);
+}
+
+.card video:focus-visible {
+    outline: 2px solid var(--secondary);
+    outline-offset: 3px;
+}
+
+/* ---------- 8. NOTES AND IMAGE PREVIEWS ---------- */
+
+.card img {
+    display: block;
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+    margin-top: auto;
+    border: 1px solid rgba(255, 255, 255, 0.10);
+    border-radius: 12px;
+    background: rgba(255, 255, 255, 0.04);
+    object-fit: contain;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.20);
+    transition:
+        transform var(--transition),
+        border-color var(--transition),
+        box-shadow var(--transition);
+}
+
+.card:hover img {
+    transform: scale(1.015);
+    border-color: rgba(100, 221, 255, 0.3);
+    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.25);
+}
+
+/* ---------- 9. SELECTION AND SCROLLBAR ---------- */
+
+::selection {
+    color: white;
+    background: rgba(120, 101, 255, 0.65);
+}
+
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: #080d1b;
+}
+
+::-webkit-scrollbar-thumb {
+    border: 2px solid #080d1b;
+    border-radius: 20px;
+    background: linear-gradient(180deg, #7865ff, #35cfe8);
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(180deg, #9a8cff, #63e5f6);
+}
+
+/* ---------- 10. LARGE DESKTOPS ---------- */
+
+@media (min-width: 1600px) {
+    body {
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        max-width: 2200px;
+        margin-inline: auto;
+        padding-inline: 60px;
+    }
+
+    body > div:first-child,
+    body > div:nth-child(2) {
+        grid-column: 1 / -1;
+    }
+
+    .card {
+        padding: 18px;
+    }
+}
+
+/* ---------- 11. LAPTOPS AND TABLETS ---------- */
+
+@media (max-width: 1100px) {
+    body {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 20px;
+        padding-inline: 28px;
+    }
+
+    body > div:first-child,
+    body > div:nth-child(2) {
+        grid-column: 1 / -1;
+    }
+
+    body > div:first-child {
+        padding-block: 55px;
+    }
+
+    .card {
+        padding: 14px;
+    }
+}
+
+/* ---------- 12. MOBILE PHONES ---------- */
+
+@media (max-width: 600px) {
+    body {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 17px;
+        padding: 16px 13px 35px;
+        background-attachment: scroll;
+    }
+
+    body > div:first-child,
+    body > div:nth-child(2) {
+        grid-column: 1;
+    }
+
+    body > div:first-child {
+        margin-bottom: 7px;
+        padding: 39px 17px;
+        border-radius: 23px;
+    }
+
+    body > div:first-child h1 {
+        margin-bottom: 12px;
+        font-size: clamp(2rem, 10vw, 3.1rem);
+        letter-spacing: -1.3px;
+    }
+
+    body > div:first-child p {
+        font-size: 0.94rem;
+        line-height: 1.8;
+    }
+
+    body > div:nth-child(2) {
+        gap: 5px;
+        margin-bottom: 10px;
+        padding: 6px;
+        border-radius: 15px;
+    }
+
+    #search {
+        height: 44px;
+        padding-inline: 11px;
+        font-size: 0.94rem;
+    }
+
+    body > div:nth-child(2) label {
+        padding: 10px 13px;
+        font-size: 0.85rem;
+        border-radius: 10px;
+    }
+
+    .card {
+        padding: 13px;
+        border-radius: 19px;
+    }
+
+    .card h2 {
+        margin-bottom: 12px;
+        font-size: 1.06rem;
+    }
+
+    .card video {
+        border-radius: 12px;
+    }
+
+    .card img {
+        border-radius: 11px;
+    }
+
+    /* Prevent excessive movement on touchscreens */
+
+    .card:hover {
+        transform: translateY(-2px);
+    }
+}
+
+/* ---------- 13. SMALL MOBILE PHONES ---------- */
+
+@media (max-width: 360px) {
+    body {
+        padding-inline: 9px;
+        gap: 13px;
+    }
+
+    body > div:first-child {
+        padding: 32px 12px;
+    }
+
+    body > div:first-child h1 {
+        font-size: 1.9rem;
+    }
+
+    body > div:nth-child(2) label {
+        padding-inline: 10px;
+    }
+
+    #search {
+        padding-inline: 8px;
+        font-size: 0.88rem;
+    }
+
+    .card {
+        padding: 10px;
+    }
+}
+
+/* ---------- 14. ACCESSIBILITY ---------- */
+
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        scroll-behavior: auto !important;
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+
+    body::before,
+    body::after {
+        animation: none !important;
+    }
+
+    .card:hover,
+    .card:hover img {
+        transform: none;
+    }
+}
+</style>
 
     </head>
     <body>
